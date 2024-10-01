@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racial Injustice</title>
+    <link rel="stylesheet" href="TMP.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: black; /* Set background to black */
+            color: white;
+            text-align: center; /* Center text by default */
+        }
+
+        .typewriter {
+            display: inline-block; /* Keep it inline */
+            border-right: .15em solid white; /* Cursor color */
+            overflow: hidden; /* Hide overflow */
+            white-space: nowrap; /* Prevent text wrapping */
+            animation: blink-caret 0.75s step-end infinite; /* Blinking effect for cursor */
+        }
+
+        .typewriter h1 {
+            margin: 0; /* Remove default margin */
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(30, end) forwards; /* Typing effect only */
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            text-align: center; /* Center the nav text */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            margin: 0 10px; /* Add margin for spacing */
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start; /* Align items to the left */
+            padding: 40px 20px; /* Increased padding for spacing */
+        }
+
+        .slideshow {
+            width: 50%;
+            position: relative;
+            margin-right: 40px; /* Space between slideshow and content */
+        }
+
+        .slides {
+            display: none;
+            width: 100%;
+            height: auto;
+        }
+
+        .content {
+            width: 40%; /* Adjusted width to keep alignment */
+            text-align: left;
+            margin-left: -20px; /* Shift content slightly to the left */
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .feature {
+            width: 100%;
+            margin: 10px 0;
+            background-color: rgba(200, 200, 200, 0.2); /* Grayish background for features */
+            padding: 15px;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .feature.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0s; /* No delay for the first box */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="typewriter">
+            <h1></h1> <!-- Empty initially -->
+        </div>
+    </header>
+    <nav>
+            <a href="Racial Injustice.html">Home</a>
+        <a href="Background.html">Background</a>
+        <a href="Bayard.html">Bayard Rustin</a>
+        <a href="Grace.html">Grace Lee Boggs</a>
+        <a href="Synthesis.html">Synthesis</a>
+        <a href="Works Cited.html">Works Cited</a>
+    </nav>
+    <div class="container">
+        <div class="slideshow">
+            <img class="slides" src="https://media.npr.org/assets/img/2021/02/24/gettyimages-3248947-a6a2456f9ffb8b74fbcfc628a85b03e828165336.jpg" alt="Bayard Rustin">
+            <img class="slides" src="https://upload.wikimedia.org/wikipedia/commons/1/14/Grace_Lee_Boggs.jpg" alt="Grace Lee Boggs">
+        </div>
+        <div class="content">
+            <div class="features">
+                <div class="feature">
+                    <h4>Bayard Rustin</h4>
+                    <p>A key figure in the civil rights movement, known for his nonviolent approach and organization of the March on Washington.</p>
+                </div>
+                <div class="feature">
+                    <h4>Grace Lee Boggs</h4>
+                    <p>A social activist who fought for the Black Power Movement and women's rights, advocating for societal transformation.</p>
+                </div>
+                <div class="feature">
+                    <h4>Activism Today</h4>
+                    <p>Learn how the legacies of Rustin and Boggs influence current movements for racial justice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Racial Injustice. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Typewriter effect
+        const text = "Racial Injustice";
+        let textIndex = 0;
+        const typingSpeed = 100;
+
+        function typeWriter() {
+            if (textIndex < text.length) {
+                document.querySelector(".typewriter h1").textContent += text.charAt(textIndex);
+                textIndex++;
+                setTimeout(typeWriter, typingSpeed);
+            } else {
+                // Start blinking cursor after typing is complete
+                document.querySelector('.typewriter').style.animation = 'blink-caret .75s step-end infinite';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelector(".typewriter h1").textContent = ""; // Ensure it's empty initially
+            typeWriter();
+        });
+
+        // Slideshow functionality
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slides');
+
+        function showSlides() {
+            slides.forEach(slide => slide.style.display = "none");
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+
+        showSlides();
+
+        // Scroll event to show features one by one
+        const features = document.querySelectorAll('.feature');
+        const options = {
+            root: null,
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.style.transitionDelay = `${index * 3}s`; // 3 seconds delay for each box
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        features.forEach(feature => {
+            observer.observe(feature);
+        });
+    </script>
+</body>
+</html>

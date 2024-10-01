@@ -1,0 +1,102 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black; /* Set background to black */
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.typewriter {
+    display: inline-block;
+    background-color: black; /* Typewriter background */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.typewriter h1 {
+    margin: 0;
+    letter-spacing: .15em;
+    color: white; /* Text color */
+    animation: typing 3.5s steps(30, end) forwards;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+nav {
+    background-color: #333;
+    padding: 15px 0;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.slideshow {
+    width: 50%;
+    position: relative;
+}
+
+.slides {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.content {
+    width: 45%;
+    text-align: left;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.feature {
+    width: 100%;
+    margin: 10px 0;
+    background-color: rgba(200, 200, 200, 0.2); /* Grayish background for features */
+    padding: 15px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.feature.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
